@@ -27,7 +27,7 @@
     },
     "homepage": "https://github.com/MhtChawlaRutrust/speech-to-text-wrapper#readme",
     "devDependencies": {
-      "typescript": "5.1.3"
+      "typescript": "5.8.3"
     }
   }
   
