@@ -7,7 +7,7 @@ import {
     onSpeechError,
     requestMicPermission,
 } from "./index";
-import { Mic, Waves } from "../assets";
+import { Mic, Waves } from "./assets";
 
 export const SpeechtoTextWrapper = (p: {
     children: React.ReactElement
