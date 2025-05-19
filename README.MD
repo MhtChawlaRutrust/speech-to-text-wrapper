@@ -1,32 +1,10 @@
 # React Native Speech-to-Text Wrapper for TextInput
 ![license](https://img.shields.io/badge/Licensed-ISC-success)
 
+### A wrapper to uplift any TextInput in react native, providing speech-to-text support in more than 20 languages
+
 ## @agrigate/speech-to-text-wrapper - ts support (under dev)
 Use `// @ts-ignore` when importing `SpeechtoTextWrapper`
-
-### A wrapper to uplift any TextInput in react native, providing speech-to-text support in more than 20 languages
-| Language Name             | Code    |
-| ------------------------- | ------- |
-| English (US)              | `en-US` |
-| English (India)           | `en-IN` |
-| Hindi (India)             | `hi-IN` |
-| Bengali (India)           | `bn-IN` |
-| Tamil (India)             | `ta-IN` |
-| Telugu (India)            | `te-IN` |
-| Kannada (India)           | `kn-IN` |
-| Marathi (India)           | `mr-IN` |
-| Gujarati (India)          | `gu-IN` |
-| Malayalam (India)         | `ml-IN` |
-| Punjabi (India)           | `pa-IN` |
-| Urdu (India)              | `ur-IN` |
-| French                    | `fr-FR` |
-| German                    | `de-DE` |
-| Spanish (Spain)           | `es-ES` |
-| Spanish (Mexico)          | `es-MX` |
-| Arabic (UAE)              | `ar-AE` |
-| Chinese (Mandarin, China) | `zh-CN` |
-| Japanese                  | `ja-JP` |
-| Korean                    | `ko-KR` |
 
 # Installation
 
@@ -36,10 +14,7 @@ or </br>
 or </br>
 ```npm i @agrigate/speech-to-text-wrapper```
 
-2. [only supports android]
-autolinking - handles automatically.
-
-3. Make sure to add required permissions in `AndroidManifest.xml`
+2. Make sure to add required permissions in `AndroidManifest.xml`
 
 ```
 <uses-permission android:name="android.permission.INTERNET" />
@@ -70,6 +45,27 @@ import SpeechtoTextWrapper from "@agrigate/speech-to-text-wrapper";
 </tbody>
 </table>
 
-Contact: mohit@theruraltrust.com
+| Language Name             | Code    |
+| ------------------------- | ------- |
+| English (US)              | `en-US` |
+| English (India)           | `en-IN` |
+| Hindi (India)             | `hi-IN` |
+| Bengali (India)           | `bn-IN` |
+| Tamil (India)             | `ta-IN` |
+| Telugu (India)            | `te-IN` |
+| Kannada (India)           | `kn-IN` |
+| Marathi (India)           | `mr-IN` |
+| Gujarati (India)          | `gu-IN` |
+| Malayalam (India)         | `ml-IN` |
+| Punjabi (India)           | `pa-IN` |
+| Urdu (India)              | `ur-IN` |
+| French                    | `fr-FR` |
+| German                    | `de-DE` |
+| Spanish (Spain)           | `es-ES` |
+| Spanish (Mexico)          | `es-MX` |
+| Arabic (UAE)              | `ar-AE` |
+| Chinese (Mandarin, China) | `zh-CN` |
+| Japanese                  | `ja-JP` |
+| Korean                    | `ko-KR` |
 
-Feel free to checkout what we do ![here](https://theruraltrust.com/)
+Feel free to checkout what we do [here](https://theruraltrust.com/)
