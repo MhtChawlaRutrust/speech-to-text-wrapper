@@ -7,6 +7,7 @@ import {
     onSpeechError,
     requestMicPermission,
 } from "./index";
+import { Mic, Waves } from "../assets";
 
 export const SpeechtoTextWrapper = (p: {
     children: React.ReactElement
@@ -39,6 +40,7 @@ export const SpeechtoTextWrapper = (p: {
     }, []);
 
     const micHandler = async () => {
+        console.log("worked?")
         const hasPermission = await requestMicPermission();
         if (!hasPermission) {
             console.warn("Microphone permission denied");
@@ -71,12 +73,11 @@ export const SpeechtoTextWrapper = (p: {
                     onPress={micHandler}
                 >
                     <Image
-                        source={{ uri: isListening ? "https://github.com/MhtChawlaRutrust/speech-to-text-wrapper/blob/master/assets/waves.png" : "https://github.com/MhtChawlaRutrust/speech-to-text-wrapper/blob/master/assets/mic.png" }}
+                        source={isListening ? Waves : Mic}
                         style={{
-                            width: 24,
-                            height: 24,
+                            width: 18,
+                            height: 18,
                         }}
-                        key={isListening.toString()}
                         resizeMode="contain"
                     />
                 </TouchableOpacity>
