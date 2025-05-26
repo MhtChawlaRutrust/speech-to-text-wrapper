@@ -1,8 +1,14 @@
 {
     "name": "@agrigate/speech-to-text-wrapper",
-    "version": "1.0.22", 
+    "version": "1.0.23", 
     "description": "Wrapper around any <TextInput /> in React Native that provides support for speech to text functionality—powerful & ease to use",
-    "main": "/src/index.ts", 
+    "main": "src/index.ts", 
+    "react-native": "src/index.ts",
+    "files": [
+      "android",
+      "src",
+      "README.md"
+    ],
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "tsc"
