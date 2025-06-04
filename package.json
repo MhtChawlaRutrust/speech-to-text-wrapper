@@ -1,23 +1,16 @@
 {
     "name": "@agrigate/speech-to-text-wrapper",
-    "version": "1.0.24",
+    "version": "1.0.25",
     "description": "Wrapper around any <TextInput /> in React Native that provides support for speech to text functionality—powerful & ease to use",
     "main": "src/index.ts",
-    "react-native": "src/index.ts",
-    "files": [
-        "android",
-        "src",
-        "README.md"
-    ],
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/MhtChawlaRutrust/speech-to-text-wrapper.git"
-    },
-    "keywords": [
+        "test": "echo \"Error: no test specified\" && exit 1"
+      },
+      "peerDependencies": {
+        "react": "*",
+        "react-native": ">=0.68.0"
+      },
+      "keywords": [
         "react-native",
         "speech-to-text",
         "speechtotext",
@@ -26,13 +19,6 @@
         "speechtextinput",
         "speechtotextwrapper"
     ],
-    "author": "Mohit Chawla",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/MhtChawlaRutrust/speech-to-text-wrapper/issues"
-    },
-    "homepage": "https://github.com/MhtChawlaRutrust/speech-to-text-wrapper#readme",
-    "devDependencies": {
-        "typescript": "5.8.3"
-    }
+      "author": "Your Name",
+      "license": "MIT"
 }
