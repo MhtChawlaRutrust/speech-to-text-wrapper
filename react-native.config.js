@@ -2,9 +2,9 @@ module.exports = {
     dependency: {
       platforms: {
         android: {
-          sourceDir: './android',
+          packageImportPath: 'import com.theruraltrust.agrigate.STTModulePackage;',
+          packageInstance: 'new STTModulePackage()',
         },
       },
     },
   };
-  

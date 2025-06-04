@@ -1,4 +1,4 @@
-package com.agrigate.speechtotext
+package com.stt
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.speech.SpeechRecognizer
 import com.facebook.react.bridge.*
 import com.facebook.react.modules.core.DeviceEventManagerModule
 
-class SpeechToTextModule(reactContext: ReactApplicationContext) :
+class STTModule(reactContext: ReactApplicationContext) :
     ReactContextBaseJavaModule(reactContext), RecognitionListener {
 
     private var speechRecognizer: SpeechRecognizer? = null

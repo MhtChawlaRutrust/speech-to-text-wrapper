@@ -1,67 +1,62 @@
-import React, { useEffect, useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import React, { useEffect, useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 import {
     startListening,
     stopListening,
     onSpeechResults,
     onSpeechError,
     requestMicPermission,
-} from "./index";
-import { Mic, Waves } from "./assets";
+} from './utils';
 
-export const SpeechtoTextWrapper = (p: {
-    children: React.ReactElement
-    locale?: string
+interface SpeechToTextWrapperProps {
+    children: React.ReactElement;
+    locale?: string;
+    renderMic?: (props: { isListening: boolean; toggle: () => void }) => React.ReactNode;
+}
+
+export const SpeechToTextWrapper: React.FC<SpeechToTextWrapperProps> = ({
+    children,
+    locale = 'en-US',
+    renderMic,
 }) => {
     const [isListening, setIsListening] = useState(false);
 
     useEffect(() => {
-        const resultSub = onSpeechResults(text => {
-            console.log('Transcribed Text:', text);
-            const childProps = (p.children as any)?.props;
+        const resultSub = onSpeechResults((text) => {
+            const childProps = (children as any)?.props;
 
             if (typeof childProps?.onChangeText === 'function') {
                 childProps.onChangeText(text);
-            } else {
-                console.warn("onChangeText is not defined on child component");
             }
-
             setIsListening(false);
         });
 
-        const errorSub = onSpeechError(err => {
-            console.error('Speech Error:', err);
-        });
+        const errorSub = onSpeechError(console.error);
 
         return () => {
             resultSub.remove();
             errorSub.remove();
         };
-    }, []);
+    }, [children]);
 
-    const micHandler = async () => {
-        console.log("worked?")
+    const toggleListening = async () => {
         const hasPermission = await requestMicPermission();
-        if (!hasPermission) {
-            console.warn("Microphone permission denied");
-            return;
-        }
+        if (!hasPermission) return;
 
         if (isListening) {
-            setIsListening(false);
             stopListening();
         } else {
-            setIsListening(true);
-            startListening(p.locale);
+            startListening(locale);
         }
+        setIsListening(!isListening);
     };
 
-
     return (
-        <>
-            <View style={{ justifyContent: "center" }}>
-                {p.children}
-
+        <View style={{ justifyContent: "center" }}>
+            {children}
+            {renderMic ? (
+                renderMic({ isListening, toggle: toggleListening })
+            ) : (
                 <TouchableOpacity
                     style={{
                         alignItems: "center",
@@ -70,18 +65,11 @@ export const SpeechtoTextWrapper = (p: {
                         position: "absolute",
                         right: 10,
                     }}
-                    onPress={micHandler}
+                    onPress={toggleListening}
                 >
-                    <Image
-                        source={isListening ? Waves : Mic}
-                        style={{
-                            width: 18,
-                            height: 18,
-                        }}
-                        resizeMode="contain"
-                    />
+                    <Text>{isListening ? "Stop" : "Start"}</Text>
                 </TouchableOpacity>
-            </View>
-        </>
+            )}
+        </View>
     );
 };
