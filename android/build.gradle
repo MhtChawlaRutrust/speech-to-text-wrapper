@@ -10,23 +10,24 @@ android {
     defaultConfig {
         minSdk 23
         targetSdk 34
-        buildConfigField("boolean", "IS_NEW_ARCHITECTURE_ENABLED", "false")
-    }
-
-    buildFeatures {
-        buildConfig true
     }
 
     buildTypes {
+        debug {
+            matchingFallbacks = ['debug']
+        }
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            matchingFallbacks = ['release']
         }
     }
 
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java']
+    publishing {
+        singleVariant("debug") {
+            withSourcesJar()
+        }
+        singleVariant("release") {
+            withSourcesJar()
         }
     }
 
@@ -34,34 +35,12 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
     kotlinOptions {
         jvmTarget = '17'
-    }
-
-    // For New Architecture (TurboModules)
-    externalNativeBuild {
-        ndkBuild {
-            path "src/main/jni/Android.mk"
-        }
     }
 }
 
 dependencies {
-    // React Native
     implementation("com.facebook.react:react-android:+")
-    implementation("com.facebook.react:hermes-android:+")
-
-    // AndroidX
     implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.appcompat:appcompat:1.6.1")
-
-    // Speech Recognition
-    implementation("androidx.speech:speech:1.0.0")
-}
-
-repositories {
-    mavenCentral()
-    google()
-    maven { url("$rootDir/../node_modules/react-native/android") }
 }
